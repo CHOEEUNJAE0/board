@@ -4,5 +4,23 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
-		
+	
+	<!-- DataSource 설정 -->
+	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
+		<!--<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>-->
+		<property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"></property>
+		<property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@localhost:1521:XE"></property>
+		<property name="username" value="c##jae"></property>
+		<property name="password" value="c##jae"></property>
+	</bean>
+	
+	<bean id="datasource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
+		<constructor-arg ref="hikariConfig"></constructor-arg>
+	</bean>
+	
+	<!-- sqlSession 객체는 connection을 생성하거나 원하는 sql을 전달, 결과를 리턴 받도록 해 준다.
+	 이러한 sqlSession을 만들어내는 객체가 sqlSesiionFactory이고 mybatis-spring 라이브러리 클래스 중 하나이다. -->
+	 <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+	 	<property name="dataSource" ref="datasource"></property>
+	 </bean>		
 </beans>
