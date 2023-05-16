@@ -7,8 +7,8 @@
 <html>
 <head>
 	<!-- js, css 위치 -->
-	<link href="<c:url value="/resoures/css/list.css"/>" ref="stylesheet">
-	<script src="<c:url value="/resources/js/list.js"/>"></script>
+	<link rel="stylesheet" href="/resources/css/list.css">
+	<!--<script src="<c:url value="/resources/js/list.js"/>"></script>-->
 <meta charset="UTF-8">
 <title>목록 페이지</title>
 <script
@@ -19,26 +19,26 @@
 <body>
 	<h1>게시판 관리</h1>
 	<hr>
-	<a href="/board/enroll">등록</a>
+	<button type="submit" class="submitbtn" onclick="location.href='/board/enroll'">등록</button>
 	
 	<table>
 		<thead>
 			<tr>
-				<th>No.</tr>
-				<th>사용여부</tr>
-				<th>제목</tr>
-				<th>작성자</tr>
-				<th>등록일</tr>
+				<th>No.</th>
+				<th>사용여부</th>
+				<th>제목</th>
+				<th>작성자</th>
+				<th>등록일</th>
 			</tr>
 		</thead>
 		<tbody>
 			<!--forEach태그로 list가 가진 요소수만큼 반복. items 속성에 서버로부터 전달받은 List 객체를 ${list} 속성값 부여. var 속성에는 반복할 List, 배열 객체 변수명 list 입력  -->
 			<c:forEach items="${list}" var="list" >
 			<tr>
-				<td><c:out value="${list.bno}"/></tr>
-				<td><c:out value="${list.useyn}"/></tr>
-				<td><c:out value="${list.title}"/></tr>
-				<td><c:out value="${list.writer}"/></tr>
+				<td><c:out value="${list.bno}"/></td>
+				<td><c:out value="${list.useyn}"/></td>
+				<td><c:out value="${list.title}"/></td>
+				<td><c:out value="${list.writer}"/></td>
 				<td><fmt:formatDate pattern="yyyy/mm/dd" value="${list.regdate}"/></td>
 			</tr>
 			</c:forEach>
