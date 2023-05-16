@@ -1,5 +1,7 @@
 package com.board.mapper;
 
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -21,18 +23,35 @@ public class BoardMapperTests {
 	@Autowired
 	private BoardMapper mapper;
 	
+//	@Test
+//	public void testEnroll() {
+//		
+//		BoardVO vo = new BoardVO();
+//		
+//		vo.setTitle("TEST1 입니다");
+//		vo.setWriter("TEST1");
+//		vo.setContent("TEST1의 내용 입니다.");
+//		
+//		mapper.enroll(vo);
+//		
+//	}
 	@Test
-	public void testEnroll() {
+	public void testGetList() {
+		List list = mapper.getList();
+		/*일반적인 for문*/
+		/*
+			for(int i=0; i<list.size(); i++) {
+				log.info(""+list.get(i));
+				}
+		 */
 		
-		BoardVO vo = new BoardVO();
-		
-		vo.setTitle("TEST1 입니다");
-		vo.setWriter("TEST1");
-		vo.setContent("TEST1의 내용 입니다.");
-		
-		mapper.enroll(vo);
-		
+		/*foreach문(향상된  for문)*/
+		/*for(Object a : list){
+		 	log.info(""+a)
+		 	}
+		 */
+		/*foreach문 & 람다식*/
+		list.forEach(board -> log.info("" + board));
 	}
-	
 
 }

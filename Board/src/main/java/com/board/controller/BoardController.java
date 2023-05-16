@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,8 +32,11 @@ public class BoardController {
 	//게시판 목록 페이지
 	@GetMapping("/list")
 	// =>RequestMapping(value="list", method=RequestMethod.GET)
-	public void boardListGET() {
+	//view 데이터 전송하기 위래 Model파라미터 추가
+	public void boardListGET(Model model) {
 		log.info("게시판 목록 페이지 진입 성공");
+		//addAttribute메소드 호출하여 list라는 속성명에 BoardService 클래스의 getList()매소드를 반환값(게시판 목록 데이터)를 속성값으로 저장
+		model.addAttribute("list", bservice.getList());
 	}
 	//게시판 등록 페이지
 	@GetMapping("/enroll")

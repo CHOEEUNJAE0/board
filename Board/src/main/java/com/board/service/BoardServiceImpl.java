@@ -1,5 +1,7 @@
 package com.board.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,10 @@ public class BoardServiceImpl implements BoardService {
 	@Autowired
 	private BoardMapper mapper;
 	
+	/*게시판 목록 불러오기*/
+	public List<BoardVO> getList() {
+		return mapper.getList();
+	}
 	/*BoardServic interface에서 선언한 메서드 오바라이팅하여 메서드 구현부 작성
 	 BoardMapper의 enroll() 메서드를 호출하는 코드 작성 
 	 */

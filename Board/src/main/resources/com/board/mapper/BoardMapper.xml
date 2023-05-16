@@ -3,10 +3,16 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="com.board.mapper.BoardMapper">
-  
+  	<!-- id 값은 mapper.java에 작성한 메서드 명과 같아야함 -->
+  	<!-- 게시판 목록 불러오기 result 속성 값은  VO의 경로 작성-->
+  	<select id="getList" resultType="com.board.model.BoardVO">
+  		SELECT * FROM BOARD
+  	</select>
+  	
   	<!-- 게시판 등록 -->
   	<insert id="enroll">
-  		insert into board(title,writer,content) values (#{title},#{writer}, #{content})
+  		INSERT INTO BOARD(TITLE,WRITER,CONTENT) VALUES (#{TITLE},#{WRITER}, #{CONTENT})
   	</insert>
+  	
   
   </mapper>

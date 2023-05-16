@@ -1,9 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!-- 등록일을 년/월/일로 표시 해 줄 라이브러리 코드 -->
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
+	<!-- js, css 위치 -->
+	<link href="<c:url value="/resoures/css/list.css"/>" ref="stylesheet">
+	<script src="<c:url value="/resources/js/list.js"/>"></script>
 <meta charset="UTF-8">
 <title>목록 페이지</title>
 <script
@@ -12,8 +17,33 @@
   crossorigin="anonymous"></script>
 </head>
 <body>
-	<h1>게시판 목록 페이지</h1>
+	<h1>게시판 관리</h1>
+	<hr>
 	<a href="/board/enroll">등록</a>
+	
+	<table>
+		<thead>
+			<tr>
+				<th>No.</tr>
+				<th>사용여부</tr>
+				<th>제목</tr>
+				<th>작성자</tr>
+				<th>등록일</tr>
+			</tr>
+		</thead>
+		<tbody>
+			<!--forEach태그로 list가 가진 요소수만큼 반복. items 속성에 서버로부터 전달받은 List 객체를 ${list} 속성값 부여. var 속성에는 반복할 List, 배열 객체 변수명 list 입력  -->
+			<c:forEach items="${list}" var="list" >
+			<tr>
+				<td><c:out value="${list.bno}"/></tr>
+				<td><c:out value="${list.useyn}"/></tr>
+				<td><c:out value="${list.title}"/></tr>
+				<td><c:out value="${list.writer}"/></tr>
+				<td><fmt:formatDate pattern="yyyy/mm/dd" value="${list.regdate}"/></td>
+			</tr>
+			</c:forEach>
+		</tbody>	
+	</table>
 	<!-- 페이지 로딩 시 반드시 실행 되어야 하는 함수 -->
 	<script>
 		$(document).ready(function(){
