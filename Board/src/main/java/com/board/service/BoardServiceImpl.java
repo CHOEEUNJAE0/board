@@ -29,5 +29,10 @@ public class BoardServiceImpl implements BoardService {
 	public void enroll(BoardVO board) {
 		mapper.enroll(board);
 	}
+	
+	/*게시물 수정 메서드 호출*/
+	public int modify(BoardVO board) {
+		return mapper.modify(board);
+	}
 
 }

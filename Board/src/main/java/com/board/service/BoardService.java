@@ -12,4 +12,7 @@ public interface BoardService {
 	
 	/*게시판 등록*/
 	public void enroll(BoardVO board);
+	
+	/*게시물 수정*/
+	public int modify(BoardVO board);
 }
