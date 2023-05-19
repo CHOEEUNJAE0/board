@@ -12,8 +12,8 @@
 	<form action="/board/enroll" method="post">
 		<div class="input_wrap">
 			<label>사용여부</label>
-			<input type="radio" name="useyn">사용
-			<input type="radio" name="useyn">사용 안함
+			<input type="radio" name="useyn" value="사용">사용
+			<input type="radio" name="useyn" value="사용안함">사용 안함
 		</div>
 		<div class="input_wrap">
 			<label>제목</label>
