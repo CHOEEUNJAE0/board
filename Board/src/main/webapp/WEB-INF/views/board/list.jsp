@@ -17,7 +17,7 @@
   crossorigin="anonymous"></script>
 </head>
 <body>
-	<h1>게시판 관리</h1>
+	<h2>게시판 관리</h2>
 	<hr>
 	<button type="submit" class="submitbtn" onclick="location.href='/board/enroll'">등록</button>
 	
