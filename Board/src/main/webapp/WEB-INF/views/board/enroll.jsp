@@ -7,8 +7,14 @@
 <title>등록 페이지</title>
 </head>
 <body>
-	<h1>게시판 등록 페이지</h1>
+	<h1>게시판 관리 등록</h1>
+	<hr>
 	<form action="/board/enroll" method="post">
+		<div class="input_wrap">
+			<label>사용여부</label>
+			<input type="radio" name="useyn">사용
+			<input type="radio" name="useyn">사용 안함
+		</div>
 		<div class="input_wrap">
 			<label>제목</label>
 			<input name="title">

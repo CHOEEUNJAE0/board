@@ -39,7 +39,7 @@
 				<td><c:out value="${list.useyn}"/></td>
 				<td><c:out value="${list.title}"/></td>
 				<td><c:out value="${list.writer}"/></td>
-				<td><fmt:formatDate pattern="yyyy/mm/dd" value="${list.regdate}"/></td>
+				<td><fmt:formatDate pattern="yyyy/MM/dd" value="${list.regdate}"/></td>
 			</tr>
 			</c:forEach>
 		</tbody>	
