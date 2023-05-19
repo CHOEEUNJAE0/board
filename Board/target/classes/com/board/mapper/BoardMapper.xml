@@ -11,7 +11,7 @@
   	
   	<!-- 게시판 등록 -->
   	<insert id="enroll">
-  		INSERT INTO BOARD(TITLE,WRITER,CONTENT) VALUES (#{TITLE},#{WRITER}, #{CONTENT})
+  		insert into board (useyn,title,writer,content) values (#{useyn},#{title},#{writer},#{content})
   	</insert>
   	
   
