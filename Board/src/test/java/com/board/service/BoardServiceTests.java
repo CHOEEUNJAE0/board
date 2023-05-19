@@ -33,5 +33,18 @@ public class BoardServiceTests {
 	public void testGetList() {
 		service.getList().forEach(board -> log.info("" + board));
 	}
+	
+	@Test
+	public void testModify() {
+		BoardVO board = new BoardVO();
+		board.setBno(1);
+		board.setUseyn("사용안함");
+		board.setTitle("TEST1로 변경.");
+		board.setWriter("TEST1로 변경.");
+		board.setContent("TEST1로 변경합니다.");
+		
+		int result = service.modify(board);
+		log.info("result : " + result);
+	}
 
 }
