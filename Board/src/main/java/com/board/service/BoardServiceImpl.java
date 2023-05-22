@@ -30,6 +30,12 @@ public class BoardServiceImpl implements BoardService {
 		mapper.enroll(board);
 	}
 	
+	/*게시글 상세 조회*/
+	@Override
+	public BoardVO getPage(int bno) {
+		return mapper.getPage(bno);
+	}
+	
 	/*게시물 수정 메서드 호출*/
 	public int modify(BoardVO board) {
 		return mapper.modify(board);

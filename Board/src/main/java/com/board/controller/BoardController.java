@@ -57,4 +57,12 @@ public class BoardController {
 		//게시판 등록 기능 수행 후 등록 페이지 벗어나기 위헤 return값으로 list 페이지. return 주기 위해 void를 String으로 변경
 		return "redirect:/board/list";
 	}
+	
+	@GetMapping("/getpage")
+	//view에서 게시판 번호 전달 받기 위해 int 형 파라미터 추가.
+	//게시판 조회 페이지에 쿼리 실핼 후 전달 받는 BoardVO 객체 데이터를 전달하기 위해 Model도 파라미터로 추가
+	public void boardGetPageGET(int bno, Model model) {
+		//addAttribute 메소드 호출, pageInfo 속성명에 BoardService 인터페이스의 getPage()매소드 호출하여 반환받은 BoardVO객체를 속성값으로 저장
+		model.addAttribute("pageInfo", bservice.getPage(bno));
+	}
 }

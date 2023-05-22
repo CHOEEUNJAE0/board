@@ -37,6 +37,11 @@
 			<tr>
 				<td><c:out value="${list.bno}"/></td>
 				<td><c:out value="${list.useyn}"/></td>
+				<td>
+					<a class="move" href='<c:out vlaue="${list.bno}"/>'>
+						<c:out value="${list.title}"/>
+					</a>
+				</td>
 				<td><c:out value="${list.title}"/></td>
 				<td><c:out value="${list.writer}"/></td>
 				<td><fmt:formatDate pattern="yyyy/MM/dd" value="${list.regdate}"/></td>
@@ -44,6 +49,8 @@
 			</c:forEach>
 		</tbody>	
 	</table>
+	<form id="moveForm" method="get">
+	</form>
 	<!-- 페이지 로딩 시 반드시 실행 되어야 하는 함수 -->
 	<script>
 		$(document).ready(function(){
@@ -60,6 +67,15 @@
 				}
 			}
 		});
+		
+		let moveForm = $("#mopveForm");
+		$(".move").on("click", function(e){
+			e.preventDefault();
+			
+			moveForm.append("<input type='hidden name='bno' vlaue='"+$(this).attr("href") +"'>");
+			moveForm.attr("action", "/board/get");
+			moveForm.submit();
+		})
 	</script>
 </body>
 </html>

@@ -54,18 +54,30 @@ public class BoardMapperTests {
 //		list.forEach(board -> log.info("" + board));
 //	}
 	
+	/*게시글 상세 조회*/
+    @Test
+   public void testGetPage() {
+       
+       /* 실제 존재하는 페이지 */
+       int bno = 41;
+       
+       log.info("" + mapper.getPage(bno));
+       
+   }
+	
+	
 	/*게시물 수정*/
-	@Test
-	public void testModify() {
-		BoardVO board = new BoardVO();
-		board.setBno(88);
-		board.setUseyn("사용");
-		board.setTitle("TEST1로 변경");
-		board.setWriter("TEST1로 변경");
-		board.setContent("TEST1로 변경합니다");
-		
-		int result = mapper.modify(board);
-		log.info("result : " + result);
-	}
-
+//	@Test
+//	public void testModify() {
+//		BoardVO board = new BoardVO();
+//		board.setBno(88);
+//		board.setUseyn("사용");
+//		board.setTitle("TEST1로 변경");
+//		board.setWriter("TEST1로 변경");
+//		board.setContent("TEST1로 변경합니다");
+//		
+//		int result = mapper.modify(board);
+//		log.info("result : " + result);
+//	}
+	
 }
