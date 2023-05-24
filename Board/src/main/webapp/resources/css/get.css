@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+
+.btn_wrap {
+	margin-top : 10px;
+}
+#list_btn {
+	border : 1px solid black;
+	border-radius : 30%;
+	padding : 2px 5px;
+	background-color : white;
+	color : black;
+}
+
+#delete_btn {
+	border : 1px solid gray;
+	border-radius : 30%;
+	padding : 2px 5px;
+	background-color : #808080;
+	color : black;.
+}
+
+#modify_btn {
+	border : 1px solid black;
+	border-radius : 30%;
+	padding : 2px 5px;
+	background-color : black;
+	color : white;
+}

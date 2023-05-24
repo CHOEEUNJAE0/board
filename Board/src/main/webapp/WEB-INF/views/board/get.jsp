@@ -5,6 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="/resources/css/get.css">
 <meta charset="UTF-8">
 <title>게시글 상세 조회 페이지</title>
 <script
@@ -33,20 +34,35 @@
 			<input name="writer" readonly="readonly" value='<c:out value="${pageInfo.writer}"/>'>
 		</div>
 		<div class="input_wrap">
-			<label>등록일</label>
-			<input name="regdate" readonly="readonly" value='<fmt:formatDate pattern="yyyy/MM/dd" value="${pageInfo.regDate}"/>'>
-		</div>
-		<div class="input_wrap">
 			<label>내용</label>
-			<textarea rows="20" name="content" readonly="readonly"></textarea><c:out value="${pageInfo.content}"/>'>
+			<textarea rows="20" name="content" readonly="readonly"><c:out value="${pageInfo.content}"/></textarea>
 		</div>
 		<div class="btn_wrap">
-			<button type="submit" onclick="location.href='/board/list'">취소</button>
+			<!--<button type="submit" onclick="location.href='/board/list'">취소</button>
 			<button type="submit">삭제</button>
-			<button type="submit" onclick="location.href='/board/modify'">수정</button>
+			<button type="submit" onclick="location.href='/board/modify?bno='${pageInfo.bno}''">수정</button>-->
+			<a class="btn" id="list_btn">취소</a>
+			<a class="btn" id="delete_btn">삭제</a>
+			<a class="btn" id="modify_btn">수정</a>
 		</div>
+		<!-- 페이징, 검색 조건 등 추후 기능 수정 시 다양한 처리를 위헤 form태그로 묶음 -->
+		<form id="infoForm" action="/board/modify" method="get">
+			<input type="hidden" id="bno" name="bno" value='<c:out value="${pageInfo.bno}"/>'>
+		</form>
 <script>
+	//버튼 동작 하도록
+	let form = $("#infoForm");
 	
+	$("#list_btn").on("click", function(e){
+		form.find("bno").remove();
+		form.attr("action", "/board/list");
+		form.submit();
+	});
+	
+	$("#modify_btn").on("click", function(e) {
+		form.attr("action", "/board/modify");
+		form.submit();
+	});
 </script>
 </body>
 </html>
