@@ -58,7 +58,7 @@ public class BoardController {
 		return "redirect:/board/list";
 	}
 	
-	@GetMapping("/getpage")
+	@GetMapping("/get")
 	//view에서 게시판 번호 전달 받기 위해 int 형 파라미터 추가.
 	//게시판 조회 페이지에 쿼리 실핼 후 전달 받는 BoardVO 객체 데이터를 전달하기 위해 Model도 파라미터로 추가
 	public void boardGetPageGET(int bno, Model model) {

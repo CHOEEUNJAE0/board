@@ -20,7 +20,6 @@
 	<h2>게시판 관리</h2>
 	<hr>
 	<button type="submit" class="submitbtn" onclick="location.href='/board/enroll'">등록</button>
-	
 	<table>
 		<thead>
 			<tr>
@@ -31,23 +30,21 @@
 				<th>등록일</th>
 			</tr>
 		</thead>
-		<tbody>
-			<!--forEach태그로 list가 가진 요소수만큼 반복. items 속성에 서버로부터 전달받은 List 객체를 ${list} 속성값 부여. var 속성에는 반복할 List, 배열 객체 변수명 list 입력  -->
-			<c:forEach items="${list}" var="list" >
+		<!--forEach태그로 list가 가진 요소수만큼 반복. items 속성에 서버로부터 전달받은 List 객체를 ${list} 속성값 부여. var 속성에는 반복할 List, 배열 객체 변수명 list 입력  -->
+		<c:forEach items="${list}" var="list" >
 			<tr>
 				<td><c:out value="${list.bno}"/></td>
 				<td><c:out value="${list.useyn}"/></td>
 				<td>
-					<a class="move" href='<c:out vlaue="${list.bno}"/>'>
+					<!--<a class="move" href='/board/getpage?bno=<c:out value="${list.bno}"/>'>-->
+					<a class="move" href='<c:out value="${list.bno}"/>'>	
 						<c:out value="${list.title}"/>
 					</a>
 				</td>
-				<td><c:out value="${list.title}"/></td>
 				<td><c:out value="${list.writer}"/></td>
 				<td><fmt:formatDate pattern="yyyy/MM/dd" value="${list.regdate}"/></td>
 			</tr>
-			</c:forEach>
-		</tbody>	
+		</c:forEach>
 	</table>
 	<form id="moveForm" method="get">
 	</form>
@@ -61,21 +58,22 @@
 			
 			function checkAlert(result) {
 				if(result === '') {
-					returnn;
+					return;
 				}else if (result === "enroll success") {
 					alert("등록이 안료 되었습니다.")
 				}
 			}
 		});
 		
-		let moveForm = $("#mopveForm");
-		$(".move").on("click", function(e){
-			e.preventDefault();
-			
-			moveForm.append("<input type='hidden name='bno' vlaue='"+$(this).attr("href") +"'>");
-			moveForm.attr("action", "/board/get");
-			moveForm.submit();
-		})
+	    let moveForm = $("#moveForm");
+	    
+	    $(".move").on("click", function(e){
+	        e.preventDefault();
+	        
+	        moveForm.append("<input type='hidden' name='bno' value='"+ $(this).attr("href")+ "'>");
+	        moveForm.attr("action", "/board/get");
+	        moveForm.submit();
+	    });
 	</script>
 </body>
 </html>
