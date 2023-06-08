@@ -36,9 +36,15 @@ public class BoardServiceImpl implements BoardService {
 		return mapper.getPage(bno);
 	}
 	
-	/*게시물 수정 메서드 호출*/
+	/*게시물 수정*/
+	@Override
 	public int modify(BoardVO board) {
 		return mapper.modify(board);
+	}
+	
+//	/*게시물 삭제*/
+	public int delete(int bno) {
+		return mapper.delete(bno);
 	}
 
 }

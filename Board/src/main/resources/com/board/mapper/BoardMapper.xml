@@ -21,8 +21,13 @@
   	
   	<!-- 게시판 수정 -->
   	<update id="modify">
-  		update board set useyn=#{useyn}, writer=#{writer}, title=#{title}, content=#{content}, updatedate = sysdate where bno = #{bno} 
+  		update board set useyn = #{useyn}, title = #{title}, content = #{content} where bno = #{bno} 
   	</update>
+  	
+  	<!-- 게시판 삭제 -->
+  	<delete id="delete">
+  		delete from board where bno = #{bno}
+  	</delete>
   	
   
   </mapper>

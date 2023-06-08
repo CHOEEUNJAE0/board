@@ -18,4 +18,7 @@ public interface BoardService {
 	
 	/*게시물 수정*/
 	public int modify(BoardVO board);
+	
+	/*게시물 삭제*/
+	public int delete(int bno);
 }

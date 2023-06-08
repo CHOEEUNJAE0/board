@@ -21,5 +21,9 @@ public interface BoardMapper {
 	//수정 데이터가 필요하기때문에 BoardVO를 파라미터로 지정.
 	//수정을 수행하는 메소드의 경우 반환 타입이 필요없지만 INT로 설정 하면 성공시 1, 실패시0 반환
 	public int modify(BoardVO board);
+	
+	/*게시글 삭제*/
+	//파라미터를 int type으로 줘서 성공하면 1 반환, 실패하면 0반환
+	public int delete(int bno);
 
 }

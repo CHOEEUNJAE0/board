@@ -1,27 +1,35 @@
-table {
+.guide {
 	border : 1px solid black;
-	border-collapse : collapse;
+}
+.content {
+	border : 1px solid black;
+}
+
+table {
+	border : 1px solid #e2e2e2;
+	border-spacing : 0;
 	width : 1000px;
 	margin-left : auto;
 	margin-right : auto;
 	margin-top : 50px;
+	margin-bottom : 50px;
 	text-align : center;
 	
 }
 td, th {
-	border : 1px solid black;
+	border : 1px solid #d3d3d3;
 }
 
 thead {
-	background-color : #d3d3d3;
+	background-color : #e2e2e2;
 }
 
 .submitbtn {
-	float : right;
 	display : inline-block;
-	padding: 10px 30px;
+	padding: 3px 30px;
 	background-color : black;
 	color : white;
 	border : none;
-	border-radius : 20px;
-}
+	border-radius : 5px;
+	margin-top : 5px;
+}	

@@ -34,24 +34,27 @@ public class BoardServiceTests {
 //		service.getList().forEach(board -> log.info("" + board));
 //	}
 //	
-	@Test
-	public void testGETPage() {
-		int bno = 41;
-		log.info("" + service.getPage(bno));
-	}
-	
-	
 //	@Test
-//	public void testModify() {
-//		BoardVO board = new BoardVO();
-//		board.setBno(1);
-//		board.setUseyn("사용안함");
-//		board.setTitle("TEST1로 변경.");
-//		board.setWriter("TEST1로 변경.");
-//		board.setContent("TEST1로 변경합니다.");
-//		
-//		int result = service.modify(board);
+//	public void testGETPage() {
+//		int bno = 41;
+//		log.info("" + service.getPage(bno));
+//	}
+	
+	
+	@Test
+	public void testModify() {
+		BoardVO board = new BoardVO();
+		board.setBno(81);
+		board.setUseyn("사용안함");
+		board.setTitle("TEST81로 다시 변경.");
+		board.setContent("TEST81로 다시 변경합니다.");
+		
+		int result = service.modify(board);
+		log.info("result : " + result);
+	}
+//	@Test
+//	public void testDelete() {
+//		int result = service.delete(42);
 //		log.info("result : " + result);
 //	}
-
 }

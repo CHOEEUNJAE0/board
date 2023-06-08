@@ -65,4 +65,27 @@ public class BoardController {
 		//addAttribute 메소드 호출, pageInfo 속성명에 BoardService 인터페이스의 getPage()매소드 호출하여 반환받은 BoardVO객체를 속성값으로 저장
 		model.addAttribute("pageInfo", bservice.getPage(bno));
 	}
-}
+	
+	/*게시물 수정 페이지로 이동*/
+	 @GetMapping("/modify")
+	 public void boardModifyGET(int bno, Model model) {
+		 model.addAttribute("pageInfo", bservice.getPage(bno));
+		 }
+
+	 /*게시물 수정 후 데이터 넘기기*/
+	 @PostMapping("/modify")
+	 public String boardModifyPOST(BoardVO board, RedirectAttributes rttr) {
+        bservice.modify(board);	        
+	    rttr.addFlashAttribute("result", "modify success");    
+	    return "redirect:/board/list";
+	    }
+	 
+	 /*게시물 삭제*/
+	 @PostMapping("/delete")
+	 public String boardDeletePOST(int bno, RedirectAttributes rttr) {
+		 
+		 bservice.delete(bno);
+		 rttr.addFlashAttribute("result", "delete success");
+		 return "redirect:/board/list";
+	 }
+}	
