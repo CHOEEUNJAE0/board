@@ -8,8 +8,7 @@
 <head>
 	<!-- js, css 위치 -->
 	<link rel="stylesheet" href="/resources/css/list.css">
-	<script src="/resources/js/list.js"></script>
-	<script type="javascript/text"
+	<script
   src="https://code.jquery.com/jquery-3.4.1.js"
   integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
   crossorigin="anonymous"></script>
@@ -18,7 +17,14 @@
 
 </head>
 <body>
-	<div class="guide">
+
+	<div>
+		<button type="submit" id="logout_btn">로그아웃</button>
+	</div>
+	<ul>
+  		<li class="nav">게시판 관리</li>
+  	</ul>
+  	<div class="guide">
 	<h2>게시판 관리</h2>
 	<hr>
 	<div class="content">
@@ -53,5 +59,33 @@
 	</div>
 	<form id="moveForm" method="get">
 	</form>
+	<!-- 페이지 로딩 시 반드시 실행 되어야 하는 함수 -->
+	<script>
+		$(document).ready(function(){
+			//서버로부터 전달받은 값 저장하기 위해 serult 변수 선언 후 전달 받은 값 초기화
+			let result = '<c:out value="${result}"/>';
+			
+			checkAlert(result);
+			
+			function checkAlert(result) {
+				if(result === '') {
+					return;
+				}else if (result === "enroll success") {
+					alert("등록이 안료 되었습니다.")
+				}
+			}
+		});
+		
+	    let moveForm = $("#moveForm");
+	    
+	    $(".move").on("click", function(e){
+	        e.preventDefault();
+	        
+	        moveForm.append("<input type='hidden' name='bno' value='"+ $(this).attr("href")+ "'>");
+	        moveForm.attr("action", "/board/get");
+	        moveForm.submit();
+	    });
+	</script>
+	
 </body>
 </html>

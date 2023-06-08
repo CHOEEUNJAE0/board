@@ -6,9 +6,12 @@
 <html>
 <head>
 <link rel="stylesheet" href="/resources/css/get.css">
-<script type="text/javascript" src="/resources/js/get.js"></script>
 <meta charset="UTF-8">
 <title>게시글 상세 조회 페이지</title>
+<script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
 </head>
 <body>
 	<h2>게시판 관리 상세</h2>
@@ -19,8 +22,8 @@
 		</div>
 		<div class="input_wrap">
 			<label>사용여부</label>
-			<input type="radio" name="useyn" value="사용" checked>사용
-			<input type="radio" name="useyn" value="사용" checked>사용안함
+			<input type="radio" name="useyn" value="사용" readonly>사용
+			<input type="radio" name="useyn" value="사용" readonly>사용안함
 		</div>
 		<div class="input_wrap">
 			<label>제목</label>
@@ -46,5 +49,20 @@
 		<form id="infoForm" action="/board/modify" method="get">
 			<input type="hidden" id="bno" name="bno" value='<c:out value="${pageInfo.bno}"/>'>
 		</form>
+<script>
+	//버튼 동작 하도록
+	let form = $("#infoForm");
+	
+	$("#list_btn").on("click", function(e){
+		form.find("bno").remove();
+		form.attr("action", "/board/list");
+		form.submit();
+	});
+	
+	$("#modify_btn").on("click", function(e) {
+		form.attr("action", "/board/modify");
+		form.submit();
+	});
+</script>
 </body>
 </html>
