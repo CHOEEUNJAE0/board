@@ -14,14 +14,19 @@
   crossorigin="anonymous"></script>
 </head>
 <body>
-	<h2>게시판 관리 상세</h2>
+	<div>
+		<button type="submit" id="logout_btn">로그아웃</button>
+	</div>
+	<ul>
+  		<li class="nav">게시판 관리</li>
+  	</ul>
+  	<div class="guide">
+	<h3>게시판 관리 상세</h3>
 	<hr>
+	<div class="content">
+	<div class="table">
 		<div class="input_wrap">
-			<label>게시판 번호</label>
-			<input name="bno" readonly="readonly" value='<c:out value="${pageInfo.bno}"/>'>
-		</div>
-		<div class="input_wrap">
-			<label>사용여부</label>
+			<label class="title">사용여부</label>
 			<input type="radio" name="useyn" value="사용" readonly>사용
 			<input type="radio" name="useyn" value="사용" readonly>사용안함
 		</div>
@@ -37,6 +42,7 @@
 			<label>내용</label>
 			<textarea rows="20" name="content" readonly="readonly"><c:out value="${pageInfo.content}"/></textarea>
 		</div>
+		</div>
 		<div class="btn_wrap">
 			<!--<button type="submit" onclick="location.href='/board/list'">취소</button>
 			<button type="submit">삭제</button>
@@ -45,10 +51,14 @@
 			<a class="btn" id="delete_btn">삭제</a>
 			<a class="btn" id="modify_btn">수정</a>
 		</div>
+
 		<!-- 페이징, 검색 조건 등 추후 기능 수정 시 다양한 처리를 위헤 form태그로 묶음 -->
 		<form id="infoForm" action="/board/modify" method="get">
 			<input type="hidden" id="bno" name="bno" value='<c:out value="${pageInfo.bno}"/>'>
 		</form>
+	
+		</div>
+		</div>
 <script>
 	//버튼 동작 하도록
 	let form = $("#infoForm");

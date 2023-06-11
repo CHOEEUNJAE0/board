@@ -6,7 +6,7 @@
   	<!-- id 값은 mapper.java에 작성한 메서드 명과 같아야함 -->
   	<!-- 게시판 목록 불러오기 result 속성 값은  VO의 경로 작성-->
   	<select id="getList" resultType="com.board.model.BoardVO">
-  		SELECT * FROM BOARD
+  		SELECT * FROM BOARD WHERE 1=1 ORDER BY BNO 
   	</select>
   	
   	<!-- 게시판 등록 -->

@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+body {
+	text-align : center;
+	margin : 150px auto;
+}
+
+#loginid {
+	margin-top : 50px;
+	margin-bottom : 10px;
+}
+
+#password {
+	margin-bottom : 30px;
+}
+
+#login_btn {
+	padding-left : 63px;
+	padding-right : 63px;
+	margin-bottom : 5px;
+}
+
+#join_btn {
+	padding-left : 57px;
+	padding-right : 57px;
+}
