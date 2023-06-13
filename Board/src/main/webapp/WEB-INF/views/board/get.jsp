@@ -24,25 +24,31 @@
 	<h3>게시판 관리 상세</h3>
 	<hr>
 	<div class="content">
-	<div class="table">
-		<div class="input_wrap">
-			<label class="title">사용여부</label>
-			<input type="radio" name="useyn" value="사용" readonly>사용
-			<input type="radio" name="useyn" value="사용" readonly>사용안함
-		</div>
-		<div class="input_wrap">
-			<label>제목</label>
-			<input name="title" readonly="readonly" value='<c:out value="${pageInfo.title}"/>'>
-		</div>
-		<div class="input_wrap">
-			<label>작성자</label>
-			<input name="writer" readonly="readonly" value='<c:out value="${pageInfo.writer}"/>'>
-		</div>
-		<div class="input_wrap">
-			<label>내용</label>
-			<textarea rows="20" name="content" readonly="readonly"><c:out value="${pageInfo.content}"/></textarea>
-		</div>
-		</div>
+		<table>
+			<colgroup>
+				<col width="15%"/>
+				<col width="15%"/>
+				<col width="15%"/>
+				<col width="55%"/>
+			</colgroup>
+			<tbody>
+				<tr>
+					<td class="title">사용여부</td><td><c:out value="${list.useyn}"/></td>
+				</tr>
+				<tr>
+					<td class="title">제목</td>
+					<td id="input"><c:out value="${pageInfo.title}"/></td>
+				</tr>
+				<tr>
+					<td class="title">작성자</td>
+					<td id="input"><c:out value="${pageInfo.writer}"/></td>
+				</tr>
+				<tr>
+					<td class="content">내용</td>
+					<td id="input"><c:out value="${pageInfo.content}"/></td>
+				</tr>	
+		</table>
+	
 		<div class="btn_wrap">
 			<!--<button type="submit" onclick="location.href='/board/list'">취소</button>
 			<button type="submit">삭제</button>
@@ -50,6 +56,7 @@
 			<a class="btn" id="list_btn">취소</a>
 			<a class="btn" id="delete_btn">삭제</a>
 			<a class="btn" id="modify_btn">수정</a>
+		</div>
 		</div>
 
 		<!-- 페이징, 검색 조건 등 추후 기능 수정 시 다양한 처리를 위헤 form태그로 묶음 -->

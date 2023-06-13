@@ -59,7 +59,7 @@ ul {
 
 table {
 	border : 1px solid #e2e2e2;
-	border-spacing : 0;
+	border-collapse: collapse;
 	width : 1250px;
 	margin-left : auto;
 	margin-right : auto;
@@ -74,6 +74,12 @@ td, th {
 
 thead {
 	background-color : #e2e2e2;
+}
+
+
+a.move{
+	text-decoration-line : none;
+	color : black;
 }
 
 .submitbtn {

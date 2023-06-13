@@ -37,6 +37,7 @@
 				<th>제목</th>
 				<th>작성자</th>
 				<th>등록일</th>
+				<th>조회수</th>
 			</tr>
 		</thead>
 		<!--forEach태그로 list가 가진 요소수만큼 반복. items 속성에 서버로부터 전달받은 List 객체를 ${list} 속성값 부여. var 속성에는 반복할 List, 배열 객체 변수명 list 입력  -->
@@ -52,6 +53,7 @@
 				</td>
 				<td><c:out value="${list.writer}"/></td>
 				<td><fmt:formatDate pattern="yyyy/MM/dd" value="${list.regdate}"/></td>
+				<td>1</td>
 			</tr>
 		</c:forEach>
 	</table>
