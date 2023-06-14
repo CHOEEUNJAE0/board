@@ -25,7 +25,7 @@
   		<li class="nav">게시판 관리</li>
   	</ul>
   	<div class="guide">
-	<h2>게시판 관리</h2>
+	<h3>게시판 관리</h3>
 	<hr>
 	<div class="content">
 	<button type="submit" class="submitbtn" onclick="location.href='/board/enroll'">등록</button>

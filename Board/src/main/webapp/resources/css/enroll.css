@@ -1,0 +1,120 @@
+@charset "UTF-8";
+
+
+body {
+	margin : 0;
+}
+
+
+#logout_btn {
+	margin-top : 10px;
+	margin-bottom : 10px;
+	margin-left : 1430px;
+	border : 1px solid black;
+	border-radius : 5%;
+	padding : 5px 10px;
+	background-color : white;
+	color : black;
+}
+
+h3 {
+	margin-left : 15px;
+}
+
+hr {
+	margin-left : 15px;
+}
+
+ul {
+	list-style-type : none;
+	margin : 0;
+	padding : 0;
+	width : 15%;
+	background-color : #e0e0e0;
+	position : fixed;
+	height : 100%;
+	overflow : auto;
+}
+
+.nav {
+	background-color : #555;
+	color : white;
+	height : 5%;
+	text-align : center;
+	font-weight : bold;
+	font-size : large;
+}
+
+.guide {
+	border : 1px solid black;
+	margin-left : 15%;
+	height : 700px;
+}
+
+.content {
+	border : 1px solid black;
+	margin-left : 15px;
+	margin-right : 15px;
+	height : 600px;
+}
+
+table {
+	border : 1px solid #e2e2e2;
+	border-collapse : collapse;
+	width : 1200px;
+	margin-left : 17px;
+	margin-right : 5px;
+	margin-top : 10px;
+	margin-bottom : 50px;
+	text-align : center;
+	height : 480px;
+	
+}
+
+th {
+	background-color : #e0e0e0;
+}
+
+td {
+	width : 100%;
+}
+
+input#title {
+	width : 800px;
+}
+
+td.content {
+	background-color : #e0e0e0;
+	height : auto;
+	width : auto;
+}
+
+
+tr,td {
+	border : 1px solid #d3d3d3;
+}
+
+.btn_wrap {
+	margin-top : 10px;
+	margin-left : 1000px;
+}
+.cancel_btn {
+	border : 1px solid black;
+	border-radius : 10%;
+	padding : 3px 20px;
+	background-color : white;
+	color : black;
+}
+
+.save_btn {
+	border : 1px solid gray;
+	border-radius : 10%;
+	padding : 3px 20px;
+	background-color : #808080;
+	color : black;.
+	margin-left : 5px;
+}
+
+.submit {
+	margin-left : 1050px;
+}
