@@ -14,8 +14,16 @@
   crossorigin="anonymous"></script>
 </head>
 <body>
-	<h2>게시글 수정 관리</h2>
+	<div>
+		<button id="logout_btn" type="submit">로그아웃</button>
+	</div>
+	<ul>
+		<li class="nav">게시판 관리</li>
+	</ul>
+	<div class="guide">
+	<h3>게시글 수정 관리</h3>
 	<hr>
+		<div class="content">
 		<form id="modifyForm" action="/board/modify" method="post">
 		<div class="input_wrap">
 			<label>사용여부</label>
@@ -47,6 +55,8 @@
 		<form id="infoForm" action="/board/modify" method="get">
 			<input type="hidden" id="bno" name="bno" value='<c:out value="${pageInfo.bno}"/>'>
 		</form>
+		</div>
+		</div>
 <script>
 	//버튼 동작 하도록
 	let form = $("#infoForm");

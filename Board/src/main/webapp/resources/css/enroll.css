@@ -89,9 +89,22 @@ td.content {
 	width : auto;
 }
 
+td#radiobox {
+	text-align : left;
+}
+
+#useno {
+	margin-left : 100px;
+}
+
 
 tr,td {
 	border : 1px solid #d3d3d3;
+}
+
+textarea {
+	width : 1000px;
+	height : 90%;
 }
 
 .btn_wrap {
