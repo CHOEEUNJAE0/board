@@ -8,7 +8,7 @@
 
 <link rel="stylesheet" href="/resources/css/enroll.css">
 <!-- smart editor -->
-<script type="text/javascript" src="smarteditor/js/HuskyEZCreator.js" charset="utf-8"></script>
+<script type="text/javascript" src="/resources/smarteditor/js/HuskyEZCreator.js" charset="utf-8"></script>
 <script
   src="https://code.jquery.com/jquery-3.4.1.js"
   integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
@@ -25,8 +25,8 @@
   	<div class="guide">
 	<h3>게시판 관리 등록</h3>
 	<hr>
-	<div class="content">
 	<form action="/board/enroll" method="post">
+		<div class="content">
 		<table>
 			<colgroup>
 				<col width="15%"/>
@@ -59,10 +59,47 @@
 			<button class="cancel_btn">취소</button>
 			<button class="save_btn">등록</button>
 		</div>
+		</div>
 	</form>
 	</div>
-	</div>
+
 </body>
+<script>
+var oEditors = [];
+ 	nhn.husky.EZCreator.createInIFrame({
+ 		oAppRef : oEditors,
+ 		elPlaceHolder : "editorTxt",
+ 		sSkinURI : "/resources/smarteditor/SmartEditor2Skin.html",
+ 		fCreator : "creatorSEditor2",
+ 		htParams : {
+ 				//toolbar 사용여부
+ 				bUseToolbar : true,
+ 				//입력창 크기 조절
+ 				bUseVericalResizer : false,
+ 				//모드탭 (Editor|HTML|TEXT)
+ 				bUseModeChanger : true
+ 				}
+ 		});
+ 		$(function() {
+ 			$("#save_btn").click(function() {
+ 				oEditors.getById["editorTxt"].exec("UPDATE_CONTENTS_FILED", []);
+ 				
+ 				var title = $("#title").val();
+ 				var content = document.getElementById("smartEditor").value;
+ 				
+ 				if(title == null || title == "") {
+ 					alert("제목을 입력하세요.")
+ 				}
+ 				
+				if(content == "" || content == null || content == '&nbsp;' || 
+					content == '<br>' || content == '<br/>' || content == '<p>&nbsp;</p>'){
+					alert("본문을 작성해주세요.");
+					oEditors.getById["smartEditor"].exec("FOCUS"); //포커싱
+					return;
+				} //이 부분은 스마트에디터 유효성 검사 부분이니 참고하시길 바랍니다.
+ 			
+		})
+	});
+</script>
 </html>
 
-<script type="text/javascript" scr="/smarteditor/js/smarteditor.js"></script>
