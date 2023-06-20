@@ -72,8 +72,15 @@
 			function checkAlert(result) {
 				if(result === '') {
 					return;
-				}else if (result === "enroll success") {
+				}
+				if (result === "enroll success") {
 					alert("등록이 안료 되었습니다.")
+				}
+				if	(result === "modify success") {
+					alert("수정이 완료 되었습니다.")
+				}
+				if (result === "delete success") {
+					alert("삭제가 완료 되었습니다.")
 				}
 			}
 		});

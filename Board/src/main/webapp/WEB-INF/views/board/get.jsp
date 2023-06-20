@@ -33,20 +33,21 @@
 			</colgroup>
 			<tbody>
 				<tr>
-					<td class="title">사용여부</td><td><c:out value="${list.useyn}"/></td>
+					<th>사용여부</th>
+					<td id="radiobox"><input type="radio" name="useyn" value="사용">사용 <input type="radio" name="useyn"  id="useyn" value="사용안함">사용안함</td>
 				</tr>
 				<tr>
-					<td class="title">제목</td>
-					<td id="input"><c:out value="${pageInfo.title}"/></td>
+					<th>제목</th>
+					<td><input name="title" id="title" readonly="readonly" value='<c:out value="${pageInfo.title}"/>'></td>
 				</tr>
 				<tr>
-					<td class="title">작성자</td>
-					<td id="input"><c:out value="${pageInfo.writer}"/></td>
+					<th>작성자</th>
+					<td><input name="writer" id="writer" readonly="readonly" value='<c:out value="${pageInfo.writer}"/>'></td>
 				</tr>
 				<tr>
-					<td class="content">내용</td>
-					<td id="input"><c:out value="${pageInfo.content}"/></td>
-				</tr>	
+					<th>내용</th>
+					<td><textarea name="content" id="editor" rows="25" readonly="readonly"><c:out value="${pageInfo.content}"/></textarea></td>
+				</tr>
 		</table>
 	
 		<div class="btn_wrap">
@@ -54,7 +55,7 @@
 			<button type="submit">삭제</button>
 			<button type="submit" onclick="location.href='/board/modify?bno='${pageInfo.bno}''">수정</button>-->
 			<a class="btn" id="list_btn">취소</a>
-			<a class="btn" id="delete_btn">삭제</a>
+			<a class="btn" id="delete_btn" onclick="del()">삭제</a>
 			<a class="btn" id="modify_btn">수정</a>
 		</div>
 		</div>
@@ -78,6 +79,18 @@
 		form.attr("action", "/board/modify");
 		form.submit();
 	});
+	
+	$("#delete_btn").on("click", function(e) {
+		form.attr("action", "/board/delete");
+		form.attr("method", "post")
+		form.submit();
+	});
+	
+	function del() {
+		if (confirm("정말 삭제하시겠습니까?")) {
+			return false;
+		}
+	}
 </script>
 </body>
 </html>

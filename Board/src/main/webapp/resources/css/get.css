@@ -59,7 +59,7 @@ ul {
 }
 
 table {
-	border : 1px solid #e2e2e2;
+	border : 1px solid black;
 	border-spacing : 0;
 	width : 1200px;
 	margin-left : 17px;
@@ -67,18 +67,24 @@ table {
 	margin-top : 10px;
 	margin-bottom : 50px;
 	text-align : center;
-	height : 480px;
 	
+}
+
+th {
+	background-color : #e0e0e0;
+	border : 1px solid #d3d3d3;
 }
 
 td {
 	width : 100%;
+	text-align : left;
+	padding: 3px 3px 3px;
+	
 }
 
-td.title {
-	background-color : #e0e0e0;
-	height : 10px;
-	width : auto;
+input#title {
+	width : 800px;
+	border : none;
 }
 
 td.content {
@@ -91,8 +97,23 @@ td#input {
 	width : 200px;
 }
 
+input#useyn {
+	margin-left : 100px;
+}
+
+input#writer {
+	border : none;
+}
+
 tr,td {
 	border : 1px solid #d3d3d3;
+}
+
+
+textarea {
+	width : 1000px;
+	height : 50%;
+	border : none;
 }
 
 .btn_wrap {
