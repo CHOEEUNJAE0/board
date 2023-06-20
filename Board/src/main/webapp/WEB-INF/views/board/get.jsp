@@ -23,7 +23,7 @@
   	<div class="guide">
 	<h3>게시판 관리 상세</h3>
 	<hr>
-	<div class="content">
+	<div class="contents">
 		<table>
 			<colgroup>
 				<col width="15%"/>
@@ -63,8 +63,6 @@
 		<form id="infoForm" action="/board/modify" method="get">
 			<input type="hidden" id="bno" name="bno" value='<c:out value="${pageInfo.bno}"/>'>
 		</form>
-	
-		</div>
 		</div>
 <script>
 	//버튼 동작 하도록

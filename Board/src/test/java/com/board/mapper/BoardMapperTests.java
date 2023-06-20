@@ -23,18 +23,19 @@ public class BoardMapperTests {
 	@Autowired
 	private BoardMapper mapper;
 	
-//	@Test
-//	public void testEnroll() {
-//		
-//		BoardVO vo = new BoardVO();
-//		
-//		vo.setTitle("TEST1 입니다");
-//		vo.setWriter("TEST1");
-//		vo.setContent("TEST1의 내용 입니다.");
-//		
-//		mapper.enroll(vo);
-//		
-//	}
+	@Test
+	public void testEnroll() {
+		
+		BoardVO vo = new BoardVO();
+		
+		vo.setUseyn("사용");
+		vo.setTitle("api 등록 후 TEST1 입니다");
+		vo.setWriter("api 등록 후 TEST1");
+		vo.setContent("api 등록 후 TEST1의 내용 입니다.");
+		
+		mapper.enroll(vo);
+		
+	}
 //	@Test
 //	public void testGetList() {
 //		List list = mapper.getList();
@@ -67,18 +68,18 @@ public class BoardMapperTests {
 	
 //	
 //	/*게시물 수정*/
-	@Test
-	public void testModify() {
-		BoardVO board = new BoardVO();
-		board.setBno(81);
-		board.setUseyn("사용");
-		board.setTitle("TEST81로 한 번 더 변경");
-		board.setContent("TEST81로 한 번 더 변경합니다");
-		
-		int result = mapper.modify(board);
-		log.info("result : " + result);
-	}
-	
+//	@Test
+//	public void testModify() {
+//		BoardVO board = new BoardVO();
+//		board.setBno(81);
+//		board.setUseyn("사용");
+//		board.setTitle("TEST81로 한 번 더 변경");
+//		board.setContent("TEST81로 한 번 더 변경합니다");
+//		
+//		int result = mapper.modify(board);
+//		log.info("result : " + result);
+//	}
+//	
 	/*게시글 삭제*/
 //	@Test
 //	public void testDelete() {

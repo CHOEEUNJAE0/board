@@ -19,16 +19,17 @@ public class BoardServiceTests {
 	@Autowired
 	private BoardService service;
 	
-//	@Test
-//	public void testEnroll() {
-//		BoardVO vo = new BoardVO();
-//		
-//		vo.setTitle("service test1");
-//		vo.setWriter("service test1");
-//		vo.setContent("service test1");
-//		
-//		service.enroll(vo);
-//	}
+	@Test
+	public void testEnroll() {
+		BoardVO vo = new BoardVO();
+		
+		vo.setUseyn("사용안함");
+		vo.setTitle("api service test1");
+		vo.setWriter("api service test1");
+		vo.setContent("api service test1");
+		
+		service.enroll(vo);
+	}
 //	@Test
 //	public void testGetList() {
 //		service.getList().forEach(board -> log.info("" + board));
@@ -41,17 +42,17 @@ public class BoardServiceTests {
 //	}
 	
 	
-	@Test
-	public void testModify() {
-		BoardVO board = new BoardVO();
-		board.setBno(81);
-		board.setUseyn("사용안함");
-		board.setTitle("TEST81로 다시 변경.");
-		board.setContent("TEST81로 다시 변경합니다.");
-		
-		int result = service.modify(board);
-		log.info("result : " + result);
-	}
+//	@Test
+//	public void testModify() {
+//		BoardVO board = new BoardVO();
+//		board.setBno(81);
+//		board.setUseyn("사용안함");
+//		board.setTitle("TEST81로 다시 변경.");
+//		board.setContent("TEST81로 다시 변경합니다.");
+//		
+//		int result = service.modify(board);
+//		log.info("result : " + result);
+//	}
 //	@Test
 //	public void testDelete() {
 //		int result = service.delete(42);

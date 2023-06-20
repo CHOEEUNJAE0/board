@@ -51,7 +51,7 @@ ul {
 	height : 700px;
 }
 
-.content {
+.contents {
 	border : 1px solid black;
 	margin-left : 15px;
 	margin-right : 15px;
@@ -59,7 +59,7 @@ ul {
 }
 
 table {
-	border : 1px solid #e2e2e2;
+	border : 1px solid black;
 	border-collapse : collapse;
 	width : 1200px;
 	margin-left : 17px;
@@ -73,10 +73,13 @@ table {
 
 th {
 	background-color : #e0e0e0;
+	border : 1px solid #d3d3d3;
 }
 
 td {
 	width : 100%;
+	text-align : left;
+	padding: 3px 3px 3px;
 }
 
 input#title {
@@ -89,9 +92,15 @@ td.content {
 	width : auto;
 }
 
-td#radiobox {
-	text-align : left;
+input#title {
+	width : 1000px;
 }
+
+input#writer {
+	width : 1000px;
+}
+
+
 
 #useno {
 	margin-left : 100px;
@@ -106,7 +115,12 @@ textarea {
 	width : 1000px;
 	height : 90%;
 }
-
+.ck-editor__editable { 
+	height: 480px; 
+	}
+.ck-content { 
+	font-size: 12px; 
+	}
 .btn_wrap {
 	margin-top : 10px;
 	margin-left : 1000px;
@@ -119,7 +133,7 @@ textarea {
 	color : black;
 }
 
-.save_btn {
+#save_btn {
 	border : 1px solid gray;
 	border-radius : 10%;
 	padding : 3px 20px;

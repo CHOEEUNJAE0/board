@@ -8,6 +8,10 @@
 <link rel="stylesheet" href="/resources/css/modify.css">
 <meta charset="UTF-8">
 <title>게시글 수정 페이지</title>
+<!-- smart editor -->
+<!-- ck editor -->
+<script src="https://cdn.ckeditor.com/ckeditor5/38.0.1/classic/ckeditor.js"></script>
+<script src="https://cdn.ckeditor.com/ckeditor5/38.0.1/classic/translations/ko.js"></script>
 <script
   src="https://code.jquery.com/jquery-3.4.1.js"
   integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
@@ -23,29 +27,36 @@
 	<div class="guide">
 	<h3>게시글 수정 관리</h3>
 	<hr>
-		<div class="content">
+		<div class="contents">
 		<form id="modifyForm" action="/board/modify" method="post">
-		<div class="input_wrap">
-			<label>사용여부</label>
-			<input type="radio" name="useyn" value="사용">사용
-			<input type="radio" name="useyn" value="사용">사용안함
-		</div>
-		<div class="input_wrap">
-			<label>제목</label>
-			<input name="title" value='<c:out value="${pageInfo.title}"/>'>
-		</div>
-		<div class="input_wrap">
-			<label>작성자</label>
-			<input name="writer" readonly="readonly" value='<c:out value="${pageInfo.writer}"/>'>
-		</div>
-		<div class="input_wrap">
-			<label>내용</label>
-			<textarea rows="20" name="content"><c:out value="${pageInfo.content}"/></textarea>
-		</div>
+		
+		<table>
+			<colgroup>
+				<col width="15%"/>
+				<col width="15%"/>
+				<col width="15%"/>
+				<col width="55%"/>
+			</colgroup>
+			<tbody>
+				<tr>
+					<th>사용여부</th>
+					<td id="radiobox"><input type="radio" name="useyn" value="사용">사용 <input type="radio" name="useyn"  id="useyn" value="사용안함">사용안함</td>
+				</tr>
+				<tr>
+					<th>제목</th>
+					<td><input name="title" id="title" value='<c:out value="${pageInfo.title}"/>'></td>
+				</tr>
+				<tr>
+					<th>작성자</th>
+					<td><input name="writer" id="writer" readonly="readonly" value='<c:out value="${pageInfo.writer}"/>'></td>
+				</tr>
+				<tr>
+					<th>내용</th>
+					<td><textarea name="content" id="editor" rows="25"><c:out value="${pageInfo.content}"/></textarea></td>
+				</tr>
+			</tbody>		
+		</table>
 		<div class="btn_wrap">
-			<!--<button type="submit" onclick="location.href='/board/list'">취소</button>
-			<button type="submit">삭제</button>
-			<button type="submit" onclick="location.href='/board/modify?bno='${pageInfo.bno}''">수정</button>-->
 			<a class="btn" id="list_btn">취소</a>
 			<a class="btn" id="delete_btn">삭제</a>
 			<a class="btn" id="modify_btn">저장</a>
@@ -74,7 +85,6 @@
 		mForm.submit();
 		form.attr("action", "/board/list");
 		console.log("mForm.submit>>>>>" + mForm.submit);
-		console.log("눌리긴하니 이거?");
 	});
 	
 	
@@ -82,7 +92,18 @@
 		form.attr("action", "/board/delete");
 		form.attr("method", "post");
 		form.submit();
-	})
+	});
+	
+	
 </script>
+    <script type="text/javascript">
+	      ClassicEditor
+	      	.create( document.querySelector( '#editor' ), {
+	    	  language : "ko"
+	      } )
+	      	.catch( error => {
+	      		console.error(error);
+	      	});
+    </script>
 </body>
 </html>
