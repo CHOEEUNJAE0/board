@@ -65,9 +65,8 @@ table {
 	margin-left : 17px;
 	margin-right : 5px;
 	margin-top : 10px;
-	margin-bottom : 50px;
+	margin-bottom : 30px;
 	text-align : center;
-	height : 480px;
 	
 }
 
@@ -100,8 +99,6 @@ input#writer {
 	width : 1000px;
 }
 
-
-
 #useno {
 	margin-left : 100px;
 }
@@ -113,10 +110,10 @@ tr,td {
 
 textarea {
 	width : 1000px;
-	height : 90%;
+	height : 50%;
 }
 .ck-editor__editable { 
-	height: 480px; 
+	height: 350px; 
 	}
 .ck-content { 
 	font-size: 12px; 

@@ -25,7 +25,7 @@
 	<div class="guide">
 	<h3>게시판 관리 등록</h3>
 	<hr>
-		<div class="content">
+		<div class="contents">
 		<form action="/board/enroll" method="post">
 				<table>
 					<colgroup>
@@ -64,13 +64,26 @@
 		</div>
 		</div>
     <script type="text/javascript">
+    	var editor;
+    
 	      ClassicEditor
 	      	.create( document.querySelector( '#editor' ), {
-	    	  language : "ko"
+	      		language : "ko"
 	      } )
+	      
+	      	.then( editor => {
+	      		 window.editor = editor;
+	      	})
 	      	.catch( error => {
 	      		console.error(error);
 	      	});
+	      
+	      //값 가져오기
+	      document.querySelector('#save_btn').addEventListener('click',()=>{
+	    	  const editorData = editor.getData();
+	      })
+	      //값 세팅
+	      editor.setData('<p>example</p>')
     </script>
 </body>
 </html>
