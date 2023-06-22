@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.board.mapper.BoardMapper;
 import com.board.model.BoardVO;
+import com.board.model.Criteria;
 
 /*interface에서 작성한 메서드를 구현 할 class. BoardService interface를 구현한다는 의미로 implements해 줌
 	이 class가 Service 역할을 한다는걸 인식 할 수 있게 @Service 어노테이션 추가
@@ -22,6 +23,13 @@ public class BoardServiceImpl implements BoardService {
 	public List<BoardVO> getList() {
 		return mapper.getList();
 	}
+	
+	/*게시판 목록 불러오기(페이징 적용)*/
+	@Override
+	public List<BoardVO> getListPaging(Criteria cri) {
+		return mapper.getListPaging(cri);
+	}
+	
 	/*BoardServic interface에서 선언한 메서드 오바라이팅하여 메서드 구현부 작성
 	 BoardMapper의 enroll() 메서드를 호출하는 코드 작성 
 	 */
@@ -42,9 +50,14 @@ public class BoardServiceImpl implements BoardService {
 		return mapper.modify(board);
 	}
 	
-//	/*게시물 삭제*/
+	/*게시물 삭제*/
 	public int delete(int bno) {
 		return mapper.delete(bno);
+	}
+	
+	/*게시물 총 갯수*/
+	public int getTotal() {
+		return mapper.getTotal();
 	}
 
 }

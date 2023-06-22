@@ -10,11 +10,11 @@ hr {
 	margin-left : 15px;
 }
 
-ul {
+ul.nv {
 	list-style-type : none;
 	margin : 0;
 	padding : 0;
-	width : 15%;
+	width : 20%;
 	background-color : #e0e0e0;
 	position : fixed;
 	height : 100%;
@@ -43,14 +43,14 @@ ul {
 
 .guide {
 	border : 1px solid black;
-	margin-left : 15%;
+	margin-left : 20%;
 	height : 700PX;
 }
 
 
 .content {
 	border : 1px solid black;
-	margin-left : 15px;
+	margin-left : 20px;
 	margin-bottom : 15px;
 	margin-right : 15px;
 	height : 600px;
@@ -60,7 +60,7 @@ ul {
 table {
 	border : 1px solid #e2e2e2;
 	border-collapse: collapse;
-	width : 1250px;
+	width : 1100px;
 	margin-left : auto;
 	margin-right : auto;
 	margin-top : 30px;
@@ -77,7 +77,7 @@ thead {
 }
 
 
-a.move{
+a{
 	text-decoration-line : none;
 	color : black;
 }
@@ -90,5 +90,10 @@ a.move{
 	border : none;
 	border-radius : 5px;
 	margin-top : 15px;
-	margin-left : 1170px;
-}	
+	margin-left : 1050px;
+}
+
+
+
+
+

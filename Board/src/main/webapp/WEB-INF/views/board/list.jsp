@@ -21,7 +21,7 @@
 	<div>
 		<button type="submit" id="logout_btn">로그아웃</button>
 	</div>
-	<ul>
+	<ul class="nv">
   		<li class="nav">게시판 관리</li>
   	</ul>
   	<div class="guide">
@@ -57,9 +57,29 @@
 			</tr>
 		</c:forEach>
 	</table>
+			<div class="pageInfo_wrap">
+				<div class="pageIngo_area">
+					<ul id="pageInfo" class="pageInfo">
+						<!-- 이전 페이지 버튼 -->
+						<c:if test="${pageMaker.prev}">
+							<li class="pageInfo_btn"><a href="{pageMaker.startPage-1}">Previous</a></li>
+						</c:if>
+						<!-- 각 번호 페이지 버튼 -->
+						<c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
+							<li class="pageInfo_btn"><a href="${num}">${num}</a></li>
+						</c:forEach>
+						<!-- 이전 페이지 버튼 -->
+						<c:if test="${pageMaker.next}">
+							<li class="pageInfo_btn"><a href="{pageMaker.endPage+1}">Next</a></li>
+						</c:if>
+					</ul>
+				</div>
+			</div>
 	</div>
 	</div>
 	<form id="moveForm" method="get">
+		<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum}">
+		<input type="hidden" name="amount" value="${pageMaker.cri.amount}">
 	</form>
 	<!-- 페이지 로딩 시 반드시 실행 되어야 하는 함수 -->
 	<script>
@@ -94,6 +114,14 @@
 	        moveForm.attr("action", "/board/get");
 	        moveForm.submit();
 	    });
+	    
+	    $(".pageInfo a").on("click", function(e){
+	    	e.preventDefault();
+	    	moveForm.find("input[name='pageNum']").val($(this).attr("href"));
+	    	moveForm.attr("action", "/board/list");
+	    	moveForm.submit();
+	    	
+	    })
 	</script>
 	
 </body>

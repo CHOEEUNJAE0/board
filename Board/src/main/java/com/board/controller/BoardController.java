@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.board.model.BoardVO;
+import com.board.model.Criteria;
+import com.board.model.PageMakerDTO;
 import com.board.service.BoardService;
 
 /**
@@ -33,11 +35,18 @@ public class BoardController {
 	@GetMapping("/list")
 	// =>RequestMapping(value="list", method=RequestMethod.GET)
 	//view 데이터 전송하기 위래 Model파라미터 추가
-	public void boardListGET(Model model) {
+	public void boardListGET(Model model, Criteria cri) {
 		log.info("게시판 목록 페이지 진입 성공");
 		//addAttribute메소드 호출하여 list라는 속성명에 BoardService 클래스의 getList()매소드를 반환값(게시판 목록 데이터)를 속성값으로 저장
-		model.addAttribute("list", bservice.getList());
+		model.addAttribute("list", bservice.getListPaging(cri));
+		
+		int total = bservice.getTotal();
+		
+		PageMakerDTO pageMake = new PageMakerDTO(cri, total);
+		//pageMakerDTO 클래스의 데이터를 VIEW로 보내기 위해 addAttribute를 활용, "pageMaker"속성에 저장
+		model.addAttribute("pageMaker", pageMake);
 	}
+	
 	//게시판 등록 페이지
 	@GetMapping("/enroll")
 	// =>RequestMapping(value="board", method=RequestMethod.GET)

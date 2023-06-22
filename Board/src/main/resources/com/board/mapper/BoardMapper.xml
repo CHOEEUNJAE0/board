@@ -14,6 +14,17 @@
   		insert into board (useyn,title,writer,content) values (#{useyn},#{title},#{writer},#{content})
   	</insert>
   	
+  	<!-- 게시물 목록(페이징 적용)  -->
+  	<select id="getListPaging" resultType="com.board.model.BoardVO">
+  		
+  		<![CDATA[
+  			select bno, useyn, title, writer, content, regdate from (
+  				select /*+INDEX_DESC(board pk_board)*/ rownum as rn, bno, useyn, title, writer, content, regdate
+  				from board where rownum <= #{pageNum} * #{amount})
+  			where rn > (#{pageNum} -1) * #{amount}
+  		]]>
+  	</select>
+  	
   	<!-- 게시글 상세 조회 -->
   	<select id="getPage" resultType="com.board.model.BoardVO">
   		select * from board where bno = #{bno}
@@ -28,6 +39,11 @@
   	<delete id="delete">
   		delete from board where bno = #{bno}
   	</delete>
+  	
+  	<!-- 게시물 총 갯수 -->
+  	<select id="getTotal" resultType="int">
+  		select count(*) from board
+  	</select>
   	
   
   </mapper>

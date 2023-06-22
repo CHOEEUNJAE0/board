@@ -11,6 +11,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.board.model.BoardVO;
+import com.board.model.Criteria;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("file:src/main/webapp/WEB-INF/spring/root-context.xml")
@@ -23,19 +24,19 @@ public class BoardMapperTests {
 	@Autowired
 	private BoardMapper mapper;
 	
-	@Test
-	public void testEnroll() {
-		
-		BoardVO vo = new BoardVO();
-		
-		vo.setUseyn("사용");
-		vo.setTitle("api 등록 후 TEST1 입니다");
-		vo.setWriter("api 등록 후 TEST1");
-		vo.setContent("api 등록 후 TEST1의 내용 입니다.");
-		
-		mapper.enroll(vo);
-		
-	}
+//	@Test
+//	public void testEnroll() {
+//		
+//		BoardVO vo = new BoardVO();
+//		
+//		vo.setUseyn("사용");
+//		vo.setTitle("api 등록 후 TEST1 입니다");
+//		vo.setWriter("api 등록 후 TEST1");
+//		vo.setContent("api 등록 후 TEST1의 내용 입니다.");
+//		
+//		mapper.enroll(vo);
+//		
+//	}
 //	@Test
 //	public void testGetList() {
 //		List list = mapper.getList();
@@ -86,4 +87,12 @@ public class BoardMapperTests {
 //		int result = mapper.delete(101);
 //		log.info("result : " + result);
 //	}
+	/*페이징 적용*/
+	@Test
+	public void testGetListPaging() {
+		Criteria cri = new Criteria();
+		cri.setPageNum(3);
+		List list = mapper.getListPaging(cri);
+		list.forEach(board -> log.info(""+board));
+	}
 }
