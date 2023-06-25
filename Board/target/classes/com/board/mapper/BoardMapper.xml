@@ -19,11 +19,21 @@
   		
   		<![CDATA[
   			select bno, useyn, title, writer, content, regdate from (
-  				select /*+INDEX_DESC(board pk_board)*/ rownum as rn, bno, useyn, title, writer, content, regdate
+  				select rownum as rn, bno, useyn, title, writer, content, regdate
   				from board where rownum <= #{pageNum} * #{amount})
   			where rn > (#{pageNum} -1) * #{amount}
+  			order by bno desc
   		]]>
   	</select>
+  	
+  	<!-- 게시물 조회수 증가 -->
+  	<!--<update id="viewCount">
+  		update board 
+  			set 
+  				viewcnt = viewcnt+1
+  			where 
+  				bno = #{bno}
+  	</update>-->
   	
   	<!-- 게시글 상세 조회 -->
   	<select id="getPage" resultType="com.board.model.BoardVO">
@@ -45,5 +55,5 @@
   		select count(*) from board
   	</select>
   	
-  
-  </mapper>
+
+ </mapper>

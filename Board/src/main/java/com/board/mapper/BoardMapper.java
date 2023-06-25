@@ -35,6 +35,9 @@ public interface BoardMapper {
 	/*게시물 총 갯수*/
 	public int getTotal();
 	
+	/*게시물 조회수 증가*/
+	//public int viewCount(int bno);
+	
 	
 	
 

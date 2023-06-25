@@ -9,6 +9,8 @@ import com.board.mapper.BoardMapper;
 import com.board.model.BoardVO;
 import com.board.model.Criteria;
 
+import lombok.AllArgsConstructor;
+
 /*interface에서 작성한 메서드를 구현 할 class. BoardService interface를 구현한다는 의미로 implements해 줌
 	이 class가 Service 역할을 한다는걸 인식 할 수 있게 @Service 어노테이션 추가
 */ 
@@ -60,4 +62,9 @@ public class BoardServiceImpl implements BoardService {
 		return mapper.getTotal();
 	}
 
+	/*게시물 조회수 증가*/
+//	@Override
+//	public void viewCount(Integer bno) throws Exception{
+//		mapper.viewCount(bno);
+//	}
 }

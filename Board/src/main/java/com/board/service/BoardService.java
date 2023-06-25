@@ -28,4 +28,7 @@ public interface BoardService {
 	
 	/*게시물 총 갯수*/
 	public int getTotal();
+	
+	/*게시물 조회수 증가*/
+	//void viewCount(Integer bno) throws Exception;
 }

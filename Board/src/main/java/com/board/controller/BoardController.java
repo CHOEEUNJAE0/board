@@ -35,8 +35,11 @@ public class BoardController {
 	@GetMapping("/list")
 	// =>RequestMapping(value="list", method=RequestMethod.GET)
 	//view 데이터 전송하기 위래 Model파라미터 추가
-	public void boardListGET(Model model, Criteria cri) {
+	public void boardListGET(Model model, Criteria cri, Integer bno) throws Exception {
 		log.info("게시판 목록 페이지 진입 성공");
+		//게시물 조회수 증가
+		//bservice.viewCount(bno);
+		
 		//addAttribute메소드 호출하여 list라는 속성명에 BoardService 클래스의 getList()매소드를 반환값(게시판 목록 데이터)를 속성값으로 저장
 		model.addAttribute("list", bservice.getListPaging(cri));
 		

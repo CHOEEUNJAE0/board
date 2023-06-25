@@ -67,16 +67,10 @@
     	var editor;
     
 	      ClassicEditor
-	      	.create( document.querySelector( '#editor' ), {
-	      		language : "ko"
-	      } )
-	      
-	      	.then( editor => {
-	      		 window.editor = editor;
-	      	})
+	      	.create(document.querySelector('#editor'))
 	      	.catch( error => {
 	      		console.error(error);
-	      	});
+	      	})
 	      
 	      //값 가져오기
 	      document.querySelector('#save_btn').addEventListener('click',()=>{

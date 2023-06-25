@@ -4,17 +4,19 @@ import java.sql.Date;
 
 public class BoardVO {
 	
-	private int bno;
+	private Integer bno;
 	private String useyn;
 	private String title;
 	private String writer;
 	private String content;
 	private Date regdate;
+	private Integer viewcnt;
 	
-	public int getBno() {
+
+	public Integer getBno() {
 		return bno;
 	}
-	public void setBno(int bno) {
+	public void setBno(Integer bno) {
 		this.bno = bno;
 	}
 	public String getUseyn() {
@@ -47,12 +49,15 @@ public class BoardVO {
 	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
 	}
+	public Integer getViewcnt() {
+		return viewcnt;
+	}
+	public void setViewcnt(Integer viewcnt) {
+		this.viewcnt = viewcnt;
+	}
 	@Override
 	public String toString() {
 		return "BoardVO [bno=" + bno + ", useyn=" + useyn + ", title=" + title + ", writer=" + writer + ", content="
-				+ content + ", regdate=" + regdate + "]";
+				+ content + ", regdate=" + regdate + ", viewcnt=" + viewcnt + "]";
 	}
-
-	
-
 }

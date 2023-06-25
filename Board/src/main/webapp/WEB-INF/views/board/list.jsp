@@ -53,16 +53,16 @@
 				</td>
 				<td><c:out value="${list.writer}"/></td>
 				<td><fmt:formatDate pattern="yyyy/MM/dd" value="${list.regdate}"/></td>
-				<td>1</td>
+				<td><c:out value="${list.viewcnt}"/></td>
 			</tr>
 		</c:forEach>
 	</table>
 			<div class="pageInfo_wrap">
 				<div class="pageIngo_area">
 					<ul id="pageInfo" class="pageInfo">
-						<!-- 이전 페이지 버튼 -->
-						<c:if test="${pageMaker.prev}">
-							<li class="pageInfo_btn"><a href="{pageMaker.startPage-1}">Previous</a></li>
+						<!-- 이전 페이지 버튼 pre,next는 boolean 타입이라서 c:if 사용  true일 때 버튼 보임-->
+						<c:if test= "${pageMaker.prev}" >
+							<li class="pageInfo_btn previous"><a href="{pageMaker.startPage-1}">Previous</a></li>
 						</c:if>
 						<!-- 각 번호 페이지 버튼 -->
 						<c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
@@ -70,7 +70,7 @@
 						</c:forEach>
 						<!-- 이전 페이지 버튼 -->
 						<c:if test="${pageMaker.next}">
-							<li class="pageInfo_btn"><a href="{pageMaker.endPage+1}">Next</a></li>
+							<li class="pageInfo_btn next"><a href="{pageMaker.endPage+1}">Next</a></li>
 						</c:if>
 					</ul>
 				</div>
